@@ -1,7 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:habit_tracker/screens/auth.dart';
+// import 'package:habit_tracker/screens/auth.dart';
 import 'package:habit_tracker/screens/home_screen.dart';
 import 'package:habit_tracker/screens/slash_page.dart';
 import 'package:firebase_core/firebase_core.dart';
