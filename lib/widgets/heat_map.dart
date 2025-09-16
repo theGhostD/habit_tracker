@@ -30,7 +30,7 @@ class HeatMapSection extends StatelessWidget {
         showText: true,
         scrollable: true,
         textColor: Colors.white,
-        size: 36,
+        size: 40,
       ),
     );
   }

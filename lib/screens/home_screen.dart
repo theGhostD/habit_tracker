@@ -55,7 +55,7 @@ class HomeScreen extends ConsumerWidget {
       appBar: AppBar(
         backgroundColor: Colors.red,
         surfaceTintColor: Colors.white,
-        title: Text('Habit Tracker'),
+        title: Text('Habit Tracker',style: TextStyle(color: Colors.white,fontWeight: FontWeight.w600,),),
         actions: [
           IconButton(
             onPressed: () {
@@ -64,14 +64,14 @@ class HomeScreen extends ConsumerWidget {
                 MaterialPageRoute(builder: (context) => NewHabit()),
               );
             },
-            icon: Icon(Icons.add),
+            icon: Icon(Icons.add,color: Colors.white,),
           ),
 
           IconButton(
             onPressed: () {
               FirebaseAuth.instance.signOut();
             },
-            icon: Icon(Icons.logout),
+            icon: Icon(Icons.logout,color: Colors.white,),
           ),
         ],
       ),
@@ -147,6 +147,9 @@ class HomeScreen extends ConsumerWidget {
           });
 
           return Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.start,
+            mainAxisSize: MainAxisSize.min,
             children: [
               HeatMapSection(datasetsList: newDataSet, statedate: startDate),
               HabitView(habitList: habitList),

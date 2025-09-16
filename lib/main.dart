@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:habit_tracker/screens/auth.dart';
 // import 'package:habit_tracker/screens/auth.dart';
 import 'package:habit_tracker/screens/home_screen.dart';
 import 'package:habit_tracker/screens/slash_page.dart';
@@ -37,7 +38,7 @@ class MyApp extends StatelessWidget {
             return SlashScreen();
           }
 
-          return SlashScreen();
+          return MyAuthScreen();
         },
       ),
      

@@ -18,6 +18,7 @@ class _MyAuthScreenState extends State<MyAuthScreen> {
 
   bool islogin = true;
   bool isloading = false;
+  bool passwordVisible = true;
 
   void userAuthHandler() async {
     try {
@@ -114,10 +115,11 @@ class _MyAuthScreenState extends State<MyAuthScreen> {
           children: [
             SafeArea(
               child: Padding(
-                padding: const EdgeInsets.only(left: 24, right: 12),
+                padding: const EdgeInsets.only(left: 24, right: 12,top: 48),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   crossAxisAlignment: CrossAxisAlignment.start,
+                  
                   children: [
                     Text(
                       islogin ? 'Hello\nSign in! ' : 'Create Your\nAccount! ',
@@ -163,35 +165,38 @@ class _MyAuthScreenState extends State<MyAuthScreen> {
                                   'Email',
                                   style: TextStyle(
                                     color: Color(0xff811E3D),
-                                    fontWeight: FontWeight.w600,
-                                    fontSize: 14,
+                                  
                                   ),
                                 ),
                               ),
-                              cursorHeight: 10,
+                            
                             ),
                           ),
                           SizedBox(height: 16),
                           SizedBox(
                             height: 46,
                             child: TextField(
-                              obscureText: true,
+                              obscureText: passwordVisible,
                               controller: passwordController,
                               decoration: InputDecoration(
-                                suffixIcon: Icon(
-                                  Icons.remove_red_eye,
-                                  size: 18,
+                                suffixIcon: IconButton(
+                                  onPressed: () {
+                                    setState(() {
+                                      passwordVisible = !passwordVisible;
+                                    });
+                                  },
+                                  icon: Icon(passwordVisible ? Icons.remove_red_eye : Icons.remove_red_eye_outlined,size: 18,),
+                                  
                                 ),
                                 label: Text(
                                   'Password',
                                   style: TextStyle(
                                     color: Color(0xff811E3D),
-                                    fontWeight: FontWeight.w600,
-                                    fontSize: 14,
+                                   
                                   ),
                                 ),
                               ),
-                              cursorHeight: 10,
+                            
                             ),
                           ),
                           SizedBox(height: 16),
@@ -210,12 +215,11 @@ class _MyAuthScreenState extends State<MyAuthScreen> {
                                     'Confirm Password',
                                     style: TextStyle(
                                       color: Color(0xff811E3D),
-                                      fontWeight: FontWeight.w600,
-                                      fontSize: 14,
+                                     
                                     ),
                                   ),
                                 ),
-                                cursorHeight: 10,
+                               
                               ),
                             ),
                           SizedBox(height: 16),
@@ -226,7 +230,7 @@ class _MyAuthScreenState extends State<MyAuthScreen> {
                               Text(
                                 'Forgot password ?',
                                 style: TextStyle(
-                                  fontWeight: FontWeight.w600,
+                                 
                                   fontSize: 14,
                                 ),
                               ),

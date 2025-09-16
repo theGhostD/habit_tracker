@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:habit_tracker/models/habit_model.dart';
+import 'package:habit_tracker/screens/home_screen.dart';
 import 'package:habit_tracker/utils/firebase_utils.dart';
 import 'package:habit_tracker/widgets/tab_section.dart';
 
@@ -109,9 +110,6 @@ class _NewHabitState extends ConsumerState<NewHabit> {
             bottom: MediaQuery.of(context).viewInsets.bottom,
           ),
           child: DraggableScrollableSheet(
-            initialChildSize: 0.4,
-            minChildSize: 0.2,
-            maxChildSize: 0.9,
             expand: false,
             builder: (context, scrollController) {
               return SingleChildScrollView(
@@ -268,14 +266,18 @@ class _NewHabitState extends ConsumerState<NewHabit> {
   }
 }
 
-class BottomModal extends ConsumerWidget {
+class BottomModal extends StatefulWidget {
   const BottomModal({super.key});
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    final habitNameController = TextEditingController();
-    final habitDespController = TextEditingController();
+  State<BottomModal> createState() => _BottomModalState();
+}
 
+class _BottomModalState extends State<BottomModal> {
+  final habitNameController = TextEditingController();
+  final habitDespController = TextEditingController();
+  @override
+  Widget build(BuildContext context) {
     return SizedBox(
       width: double.infinity,
       child: Padding(
@@ -334,7 +336,7 @@ class BottomModal extends ConsumerWidget {
 
                       await FirebaseUtils.addhabit(habitModel, context);
                       if (context.mounted) {
-                        Navigator.pop(context);
+                        Navigator.push(context, MaterialPageRoute(builder: (context) => HomeScreen()));
                       }
                     }
                   },

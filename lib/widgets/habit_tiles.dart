@@ -20,7 +20,7 @@ class HabitTiles extends StatelessWidget {
         ),
         child: ListTile(
           onTap: () {
-            print('object');
+          
             if (currentHabit.iscompleted) {
               return;
             }
@@ -41,7 +41,7 @@ class HabitTiles extends StatelessWidget {
 
           title: Text(
             currentHabit.habitName,
-            style: TextStyle(fontWeight: FontWeight.w600, fontSize: 14),
+            style: TextStyle(fontWeight: FontWeight.w500,),
           ),
           subtitle: Text(
             currentHabit.habitDesp,
